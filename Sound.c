@@ -13,15 +13,15 @@
 #include <stdint.h>
 #include "dac.h"
 #include "../inc/tm4c123gh6pm.h"
-
+#include "../PeriodicSysTickInts_4C123/SysTickInts.c"
 // **************Sound_Init*********************
 // Initialize digital outputs and SysTick timer
 // Called once, with sound/interrupts initially off
 // Input: none
 // Output: none
-const uint8_t SineWave[16] = {4,5,6,7,7,7,6,5,4,3,2,1,1,1,2,3};
 uint8_t Index=0;
 uint32_t Period =  2500000/523;//Set to a c note;
+uint32_t flag = 0;
 // 4-bit 32-element sine wave
 const unsigned short wave[32] = {
   8,9,11,12,13,14,14,15,15,15,14,
@@ -30,23 +30,15 @@ const unsigned short wave[32] = {
 
 void Sound_Init(void){
   DAC_Init();          // Port B is DAC
-
-  Index = 0;
-
-  NVIC_ST_CTRL_R = 0;         // disable SysTick during setup
-
-  NVIC_ST_RELOAD_R = Period;// reload value
-
-  NVIC_ST_CURRENT_R = 0;      // any write to current clears it
-
-  NVIC_SYS_PRI3_R = (NVIC_SYS_PRI3_R&0x00FFFFFF)|0x20000000; // priority 1
-
-  NVIC_ST_CTRL_R = 0x0007; // enable SysTick with core clock and interrupts
+  SysTick_Init(0);
+	EnableInterrupts();
 }
 
 void SysTick_Handler(void){
-  Index = (Index+1)&0x0F;      // 4,5,6,7,7,7,6,5,4,3,2,1,1,1,2,3,... 
-  DAC_Out(SineWave[Index]);    // output one value each interrupt
+	if(flag == 1){
+	Index = (Index+1)&0x1F;   
+  DAC_Out(wave[Index]);    // output one value each interrupt
+	}
 }
 
 // **************Sound_Play*********************
@@ -60,6 +52,14 @@ void SysTick_Handler(void){
 //         if period equals zero, disable sound output
 // Output: none
 void Sound_Play(uint32_t period){
+	if(period == 0){
+		flag = 0; 
+	}
+	else{
+		flag = 1;
+	}
+	
 	NVIC_ST_RELOAD_R = period;
+	
 }
 

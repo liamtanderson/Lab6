@@ -21,7 +21,13 @@
 // Index varies from 0 to 15
 void DAC_Init(void){
  SYSCTL_RCGCGPIO_R |= 0x02;//turn on clock for portb
- uint32_t Delay = SYSCTL_RCGCGPIO_R; //
+ uint32_t volatile delay; //
+	delay = 0;
+	delay++;
+	delay++;
+	delay = 0;
+	delay++;
+	delay++;
  GPIO_PORTB_DIR_R |= 0x0f;//setups portB
  GPIO_PORTB_DEN_R |= 0x0f;//setups portB	
 }

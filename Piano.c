@@ -19,17 +19,18 @@
 // Input: none 
 // Output: none
 
-uint32_t volatile delay;
-
 void Piano_Init(void){ 
-	SYSCTL_RCGCGPIO_R |= 0x10;//turn on clock for porte
-	delay = SYSCTL_RCGCGPIO_R; //
-	delay = 0;//
-	delay = 1; //
-	delay = 9; //
-	delay = 27; //
-	GPIO_PORTE_DIR_R &= 0x07;//setup porte
-	GPIO_PORTE_DEN_R &= 0x07;//setup porte
+	uint32_t volatile delay; 
+	SYSCTL_RCGCGPIO_R |= 0x10;//turn on clock for porte//
+	delay = SYSCTL_RCGCGPIO_R;
+	delay = 0;
+	delay++;
+	delay++;
+	delay = 0;
+	delay++;
+	delay++;
+	GPIO_PORTE_DIR_R &= ~0x07;//setup porte
+	GPIO_PORTE_DEN_R |= 0x07;//setup porte
 	GPIO_PORTE_PDR_R |= 0x07;
 }
 // **************Piano_In*********************

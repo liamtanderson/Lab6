@@ -119,6 +119,30 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>Stepper_OUTPUT_SEL</Key>
+          <Name>4</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>Stepper_INPUT_SEL</Key>
+          <Name>4</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>STEPPERSTEPSPERROT</Key>
+          <Name>1119092736</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>STEPPERPHASES</Key>
+          <Name>1</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -145,12 +169,12 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DAC_R5</Key>
-          <Name>0</Name>
+          <Name>-2077682152</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>DAC_R4</Key>
-          <Name>0</Name>
+          <Name>-2077682152</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -175,7 +199,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDARM</Key>
-          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(3006=-1,-1,-1,-1,0)(3004=-1,-1,-1,-1,0)</Name>
+          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(9108=0,23,175,255,0)(9106=-1,-1,-1,-1,0)(9104=40,324,446,605,1)(9107=-1,-1,-1,-1,0)(9109=427,182,833,463,0)(9102=184,125,590,409,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -217,12 +241,12 @@
         <AscS3>0</AscS3>
         <aSer3>0</aSer3>
         <eProf>0</eProf>
-        <aLa>1</aLa>
+        <aLa>0</aLa>
         <aPa1>0</aPa1>
         <AscS4>0</AscS4>
         <aSer4>0</aSer4>
         <StkLoc>0</StkLoc>
-        <TrcWin>0</TrcWin>
+        <TrcWin>1</TrcWin>
         <newCpu>0</newCpu>
         <uProt>0</uProt>
       </DebugFlag>
@@ -243,7 +267,7 @@
         <Wi>
           <IntNumber>0</IntNumber>
           <FirstString>`DACOUT</FirstString>
-          <SecondString>0080000000000000000000006666666666660A40000000000000000000000000000000004441434F555400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700000001000000000000000000F03F10000000000000000000000000000000000000006C160000</SecondString>
+          <SecondString>FF00000000000000000000006666666666660A40000000000000000000000000000000004441434F555400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700000001000000000000000000F03F0F000000000000000000000000000000000000006A0C0000</SecondString>
         </Wi>
       </LogicAnalyzers>
     </TargetOption>

@@ -30,7 +30,18 @@ int main(void){
   EnableInterrupts();
   while(1){ 
 		note = Piano_In();
+		if(note != 0){
+			if(note == 1)
+				note = A;
+			if(note == 2)
+				note = B;
+			if(note == 4)
+				note = C;
+		//heartbeat
+	  GPIO_PORTF_DATA_R ^= 0x02;
+			
 		Sound_Play(note);
+	}
   }    
 }
 
